@@ -52,7 +52,7 @@ func (wsc WebSocketController) CheckConnect(roomId string, platformOwnerId strin
 }
 
 func (wsc WebSocketController) SendMessage(webhookMessage *protocols.WebhookMessage) error {
-	connections, err := wsc.webSocketInteractor.FetchConnections(webhookMessage.roomId)
+	connections, err := wsc.webSocketInteractor.FetchConnections(webhookMessage.RoomId)
 	if err != nil {
 		return err
 	}
