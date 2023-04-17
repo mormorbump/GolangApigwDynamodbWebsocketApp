@@ -1,0 +1,23 @@
+
+provider "aws" {
+  shared_credentials_file = "~/.aws/credentials"
+  profile                 = "profile.name"
+  region                  = "region"
+}
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+  required_version = ">= 0.14"
+  backend "s3" {
+    shared_credentials_file = "~/.aws/credentials"
+    profile                 = "profile.name"
+    bucket                  = "bucket-name"
+    key                     = "region/env/terraform.tfstate"
+    region                  = "region"
+  }
+}
