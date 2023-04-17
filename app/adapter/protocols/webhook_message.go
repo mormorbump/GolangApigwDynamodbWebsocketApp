@@ -4,7 +4,7 @@ package protocols
 type WebhookMessage struct {
 	Type            string `json:"type"`
 	Message         string `json:"message,omitempty"`
-	LiveId          string `json:"liveId"`
+	RoomId          string `json:"roomId"`
 	Name            string `json:"name"`
 	ImageUrl        string `json:"imageUrl"`
 	PlatformUserId  string `json:"platformUserId"`

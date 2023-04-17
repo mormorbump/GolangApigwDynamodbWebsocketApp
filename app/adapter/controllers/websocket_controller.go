@@ -39,8 +39,8 @@ func (wsc WebSocketController) Destroy(connectionId string) error {
 	return nil
 }
 
-func (wsc WebSocketController) CheckConnect(liveId string, platformOwnerId string) (bool, error) {
-	connection, err := wsc.webSocketInteractor.FetchConnection(liveId, platformOwnerId)
+func (wsc WebSocketController) CheckConnect(roomId string, platformOwnerId string) (bool, error) {
+	connection, err := wsc.webSocketInteractor.FetchConnection(roomId, platformOwnerId)
 	if err != nil {
 		return false, err
 	}
@@ -52,7 +52,7 @@ func (wsc WebSocketController) CheckConnect(liveId string, platformOwnerId strin
 }
 
 func (wsc WebSocketController) SendMessage(webhookMessage *protocols.WebhookMessage) error {
-	connections, err := wsc.webSocketInteractor.FetchConnections(webhookMessage.LiveId)
+	connections, err := wsc.webSocketInteractor.FetchConnections(webhookMessage.roomId)
 	if err != nil {
 		return err
 	}

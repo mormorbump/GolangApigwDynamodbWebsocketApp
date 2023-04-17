@@ -1,0 +1,8 @@
+aws_env             = "dev"
+system_name_prefix  = "websocket-app"
+api_server_base_url = "<API_SERVER_URL>"
+dynamodb_hash_key   = "roomId"
+dynamodb_range_key  = "userId"
+dynamodb_ttl_key    = "timeToExist"
+dynamodb_attr_key1  = "connectionId"
+dynamodb_gsi_name   = "connectionIdIndex"

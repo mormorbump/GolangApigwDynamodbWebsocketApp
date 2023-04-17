@@ -8,6 +8,6 @@ import (
 type IDBConnectionRepository interface {
 	Save(conn *models.Connection) error
 	Delete(connectionId string) error
-	WhereByLiveId(liveId string) (models.Connections, error)
-	FindByLiveIdAndUserId(liveId string, userId string) (models.Connection, error)
+	WhereByRoomId(roomId string) (models.Connections, error)
+	FindByRoomIdAndUserId(roomId string, userId string) (models.Connection, error)
 }

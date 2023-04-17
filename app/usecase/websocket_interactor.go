@@ -18,16 +18,16 @@ func (i *WebSocketInteractor) OnDisconnect(connectionId string) error {
 	return i.DBConnectionRepository.Delete(connectionId)
 }
 
-func (i *WebSocketInteractor) FetchConnection(liveId string, userId string) (models.Connection, error) {
-	connection, err := i.DBConnectionRepository.FindByLiveIdAndUserId(liveId, userId)
+func (i *WebSocketInteractor) FetchConnection(roomId string, userId string) (models.Connection, error) {
+	connection, err := i.DBConnectionRepository.FindByRoomIdAndUserId(roomId, userId)
 	if err != nil {
 		return connection, err
 	}
 	return connection, nil
 }
 
-func (i *WebSocketInteractor) FetchConnections(liveId string) (models.Connections, error) {
-	connections, err := i.DBConnectionRepository.WhereByLiveId(liveId)
+func (i *WebSocketInteractor) FetchConnections(roomId string) (models.Connections, error) {
+	connections, err := i.DBConnectionRepository.WhereByRoomId(roomId)
 	if err != nil {
 		return nil, err
 	}

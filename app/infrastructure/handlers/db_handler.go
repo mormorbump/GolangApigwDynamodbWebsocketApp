@@ -101,7 +101,7 @@ func (db *DBHandler) setDeleteItemInput(GSIHashKeyVal string) *dynamodb.DeleteIt
 	}
 	return &dynamodb.DeleteItemInput{
 		Key: map[string]types.AttributeValue{
-			db.primaryKey: &types.AttributeValueMemberS{Value: out[0].LiveID},
+			db.primaryKey: &types.AttributeValueMemberS{Value: out[0].RoomID},
 			db.sortKey:    &types.AttributeValueMemberS{Value: out[0].UserID},
 		},
 		TableName: aws.String(db.tableName),

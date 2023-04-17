@@ -11,7 +11,7 @@ type DBConnectionRepository struct {
 }
 
 func (db DBConnectionRepository) Save(conn *models.Connection) error {
-	err := db.DBPutItem(conn.LiveID, conn.UserID, conn.ConnectionID)
+	err := db.DBPutItem(conn.RoomId, conn.UserID, conn.ConnectionID)
 	if err != nil {
 		return err
 	}
@@ -28,9 +28,9 @@ func (db DBConnectionRepository) Delete(connectionId string) error {
 	return nil
 }
 
-func (db DBConnectionRepository) FindByLiveIdAndUserId(liveId string, userId string) (models.Connection, error) {
+func (db DBConnectionRepository) FindByroomIdAndUserId(roomId string, userId string) (models.Connection, error) {
 	var out models.Connection
-	err := db.DBGetItem(liveId, userId, &out)
+	err := db.DBGetItem(roomId, userId, &out)
 	if err != nil {
 		return out, err
 	}
@@ -38,9 +38,9 @@ func (db DBConnectionRepository) FindByLiveIdAndUserId(liveId string, userId str
 	return out, nil
 }
 
-func (db DBConnectionRepository) WhereByLiveId(liveId string) (models.Connections, error) {
+func (db DBConnectionRepository) WhereByroomId(roomId string) (models.Connections, error) {
 	var out models.Connections
-	err := db.DBQuery(liveId, &out)
+	err := db.DBQuery(roomId, &out)
 	if err != nil {
 		return nil, err
 	}

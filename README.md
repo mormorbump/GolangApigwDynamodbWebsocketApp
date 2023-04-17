@@ -54,7 +54,7 @@ use [wscat](https://github.com/websockets/wscat)
 
 ### connection
 
-stringParameterでtoken(Bearer), liveId, userId, ownerIdを取りたいので以下のようにパラメタつける 
+stringParameterでtoken(Bearer), roomId, userId, ownerIdを取りたいので以下のようにパラメタつける 
 
 ```
 wscat -c wss://<api-id>.execute-api.<region>.amazonaws.com/<stage>?<params1=value1&params2=value2...>
@@ -71,7 +71,7 @@ t
 ```
 {
     "platformUserId": 111,
-    "liveId": "XXXXXXXXXXXXX",
+    "roomId": "XXXXXXXXXXXXX",
     "message": "hello world",
     "name": "dummy", 
     "imageUrl": "<cdnUrl>",
